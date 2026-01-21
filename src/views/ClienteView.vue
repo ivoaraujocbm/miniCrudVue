@@ -52,7 +52,7 @@
     mostrarForm.value = false
   }
 
-  function removerCliente(id){
+  function excluirCliente(id){
     clientes.value = clientes.value.filter(c => c.id !== id)
   }
 </script>
