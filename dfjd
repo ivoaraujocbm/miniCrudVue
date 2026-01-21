@@ -1,0 +1,12 @@
+user.name=ivoaraujocbm
+user.email=ivo.araujo@cbminformatica.com.br
+difftool.sourcetree.cmd='' 
+mergetool.sourcetree.cmd='' 
+mergetool.sourcetree.trustexitcode=true
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+credetion.helper=manager
+credetial.helper=manager
+credential.helper=cache
