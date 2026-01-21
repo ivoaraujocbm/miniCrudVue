@@ -26,6 +26,20 @@
   })
 
   watch(
+    () => props.cliente,
+    (novo) => {
+      if(novo) {
+        Object.assign(form, novo)
+      } else {
+        form.id = null
+        form.nome = ''
+        form.email = ''
+      }
+    },
+    { immediate: true }
   )
 
+  function salvar(){
+    emit('salvar', { ...form })
+  }
 </script>
