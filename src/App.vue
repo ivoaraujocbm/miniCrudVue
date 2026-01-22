@@ -1,22 +1,15 @@
 <script setup>
-  import { reactive, ref } from 'vue'
-
-  const editando = ref(false)
-
-  const form = reactive({
-    nome: '',
-    email: ''
-  })
-
-  const clientes = ref([
-    { id: 1, nome: 'João', email: 'joao@email.com' },
-    { id: 2, nome: 'Maria', email: 'maria@email.com' }
-  ])
-
-  function cancelar() {
-    form.nome = ''
-    form.email = ''
-  }
+  import { useClientes } from './composables/useClientes';
+  
+    const {
+    clientes,
+    form,
+    editando,
+    salvar,
+    editar,
+    excluir,
+    cancelar
+  } = useClientes()
 </script>
 
 <template>
@@ -24,7 +17,7 @@
     <div class="w-full max-w-lg">
 
       <!-- FORMULÁRIO -->
-      <form class="bg-white rounded-lg shadow p-6 space-y-6">
+      <form @submit.prevent="salvar" class="bg-white rounded-lg shadow p-6 space-y-6">
         <h2 class="text-lg font-semibold text-gray-800">
           {{ editando ? 'Editar Cliente' : 'Novo Cliente' }}
         </h2>
@@ -86,18 +79,20 @@
 
             <div class="flex gap-2">
               <button
+                @click="editar(cliente)"
                 class="rounded-md bg-indigo-600 px-3 py-1 text-sm font-semibold text-white hover:bg-indigo-700"
               >
                 Editar
               </button>
 
               <button
+                @click="excluir(cliente.id)"
                 class="rounded-md bg-red-600 px-3 py-1 text-sm font-semibold text-white hover:bg-red-700"
               >
                 Excluir
               </button>
             </div>
-            
+
           </li>
         </ul>
       </div>
