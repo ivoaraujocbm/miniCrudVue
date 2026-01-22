@@ -1,0 +1,23 @@
+Template Antigo Cliente View
+
+/**<template>
+  <h1>Clientes</h1>
+
+  <button @click="novoCliente">Novo Cliente</button>
+
+  <ul>
+    <li v-for="cliente in clientes" :key="cliente.id">
+      {{ cliente.nome }} - {{ cliente.email }}
+
+      <button @click="editarCliente(cliente)">Editar</button>
+      <button @click="excluirCliente(cliente.id)">Excluir</button>
+    </li>
+  </ul>
+
+  <ClienteForm
+    v-if="mostrarForm"
+    :cliente="clienteSelecionado"
+    @salvar="salvar"
+    @cancelar="mostrarForm = false"
+  />
+</template> */
