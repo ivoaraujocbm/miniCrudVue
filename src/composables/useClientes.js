@@ -25,10 +25,16 @@ export function useClientes(){
           nome: form.nome, 
           email: form.email
         };
-      }    
+      } 
+    } else {
+        clientes.value.push({
+          id: Date.now(),
+          nome: form.nome,
+          email: form.email
+        });
+      }
+      cancelar()
     }
-    cancelar()
-  }
 
   function editar(cliente) {
     form.nome = cliente.nome
